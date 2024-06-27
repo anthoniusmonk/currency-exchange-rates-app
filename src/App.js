@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import SiteName from './components/Header/SiteName';
+import NavLinks from './components/Header/NavLinks';
+import BaseCurrencySelector from './components/BaseCurrencySelector/DropdownMenu';
+import ExchangeRatesTable from './components/MainContent/Exchange/ExchangeRatesTable';
+import CurrencyConverter from './components/MainContent/Currency/CurrencyConverter';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
+  const [baseCurrency, setBaseCurrency] = useState('USD');
+
+  console.log('App component rendered');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app">
+      <header>
+        <SiteName />
+        <NavLinks />
       </header>
+      <BaseCurrencySelector baseCurrency={baseCurrency} setBaseCurrency={setBaseCurrency} />
+      <main>
+        <ExchangeRatesTable baseCurrency={baseCurrency} />
+        <CurrencyConverter />
+      </main>
+      <Footer />
     </div>
   );
 }

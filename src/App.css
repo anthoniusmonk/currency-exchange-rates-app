@@ -1,38 +1,127 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+body {
+  background-color: #3CB371;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header, footer {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: linear-gradient(45deg, #3CB371, #E7F5ED);
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+header {
+  margin-top: 0;
+}
+
+footer {
+  margin-bottom: 0;
+}
+
+header .site-name {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+header .nav-links {
+  margin-top: 10px;
+}
+
+footer {
+  font-size: 1rem;
+  padding: 10px;
+}
+
+
+nav a {
+  margin: 0 1rem;
+}
+
+main {
+  background-color: white;
+  flex: 1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+}
+
+.currency-converter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exchange-rates-table-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.exchange-rates-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.exchange-rates-table th,
+.exchange-rates-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.exchange-rates-table th {
+  background-color: #f2f2f2;
+}
+
+.spacing-top {
+  margin-top: 3rem;
+}
+
+.dropdown-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.rounded-dropdown {
+  border-radius: 12px;
+  border: 1px solid #ced4da;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300%;
+  height: 50px;
+  box-sizing: border-box;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.rounded-dropdown::after {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.rounded-dropdown select {
+  border: none;
+  outline: none;
 }
