@@ -5,9 +5,14 @@ import './NavLinks.css';
 const NavLinks = () => {
   return (
     <nav>
-      <Link to="currency-converter" smooth={true} duration={500}>
+      <Link to="currency-converter-title" smooth={true} duration={500}>
         <button type="button" className="link-button">
           Currency Converter
+        </button>
+      </Link>
+      <Link to="currency-chart" smooth={true} duration={500}>
+        <button type="button" className="link-button">
+          Exchange Rate Chart
         </button>
       </Link>
     </nav>

@@ -34,3 +34,8 @@
   color: #28a745;
   font-weight: bold;
 }
+
+.currency-chart-container {
+  margin: 0 auto;
+  text-align: center;
+}

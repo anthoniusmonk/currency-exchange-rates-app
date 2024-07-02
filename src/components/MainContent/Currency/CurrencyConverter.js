@@ -1,10 +1,11 @@
+// src/components/CurrencyConverter.js
 import React, { useState } from 'react';
-import { Element } from 'react-scroll';
 import AmountInput from './AmountInput';
 import CurrencyDropdown from './CurrencyDropdown';
 import SwapButton from './SwapButton';
 import ConvertButton from './ConvertButton';
-import './CurrencyConverter.css'; // Import custom CSS
+import CurrencyChart from './CurrencyChart'; // Import the new chart component
+import './CurrencyConverter.css';
 
 const CurrencyConverter = () => {
   const [amount, setAmount] = useState(1);
@@ -26,23 +27,33 @@ const CurrencyConverter = () => {
   };
 
   return (
-    <div className="currency-converter-container">
-      <div className="currency-converter-title">
-        <h2>Currency Converter</h2>
+    <div className="currency-chart-container">
+      <div className="currency-converter-container">
+        <div className="currency-converter-title">
+          <h2>Currency Converter</h2>
+        </div>
+        <div className="currency-converter">
+          <AmountInput amount={amount} setAmount={setAmount} />
+          <CurrencyDropdown selectedCurrency={fromCurrency} setSelectedCurrency={setFromCurrency} />
+          <SwapButton handleSwap={handleSwap} />
+          <CurrencyDropdown selectedCurrency={toCurrency} setSelectedCurrency={setToCurrency} />
+          <ConvertButton handleConvert={handleConvert} />
+          {convertedAmount !== null && (
+            <div className="result mt-3">
+              <p>
+                {amount} {fromCurrency} is {convertedAmount} {toCurrency}
+              </p>
+            </div>
+          )}
+        </div>
       </div>
-      <div className="currency-converter">
-        <AmountInput amount={amount} setAmount={setAmount} />
-        <CurrencyDropdown selectedCurrency={fromCurrency} setSelectedCurrency={setFromCurrency} />
-        <SwapButton handleSwap={handleSwap} />
-        <CurrencyDropdown selectedCurrency={toCurrency} setSelectedCurrency={setToCurrency} />
-        <ConvertButton handleConvert={handleConvert} />
-        {convertedAmount !== null && (
-          <div className="result mt-3">
-            <p>
-              {amount} {fromCurrency} is {convertedAmount} {toCurrency}
-            </p>
-          </div>
-        )}
+      <div className="currency-chart">
+        <CurrencyChart 
+          fromCurrency={fromCurrency} 
+          toCurrency={toCurrency} 
+          startDate="2019-01-01" 
+          endDate="2019-01-30" 
+        /> {/* Include the chart component */} 
       </div>
     </div>
   );
